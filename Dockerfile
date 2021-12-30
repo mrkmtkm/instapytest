@@ -1,6 +1,9 @@
 FROM python:3.9.6
 USER root
 
+WORKDIR /root/opt
+ADD /opt /root/opt
+
 RUN apt-get update
 RUN apt-get -y install locales && \
     localedef -f UTF-8 -i ja_JP ja_JP.UTF-8
@@ -24,5 +27,5 @@ RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckod
 RUN tar -xvzf geckodriver-v0.30.0-linux64.tar.gz
 RUN chmod +x geckodriver 
 RUN cp geckodriver /usr/local/bin/
-CMD cd opt && python bot.py
+CMD python bot.py
 

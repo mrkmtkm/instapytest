@@ -1,14 +1,15 @@
 from instapy import InstaPy
 from instapy.util import smart_run
+import os
 
 # Write your automation here
 # Stuck? Look at the github page https://github.com/InstaPy/instapy-quickstart
 
 # ここにインスタグラムのログイン情報を入力する
-insta_username = "ota_rg_blog"
-insta_password = "Ym414tm216"
+insta_username = "user_name"
+insta_password = "password"
 
-bot = InstaPy(username=insta_username, password=insta_password, headless_browser=True)
+bot = InstaPy(username=insta_username, password=insta_password, headless_browser=True, proxy_port=os.environ['PORT'])
 with smart_run(bot):
     # フォローやlike等をする対象の範囲の設定
     # 例えば、max_followers, min_followersはそれぞれ最大・最小フォロワー数を意味し、フォロワー数がこの範囲にあるユーザーに対してフォローやlikeをする。
